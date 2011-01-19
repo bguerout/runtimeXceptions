@@ -16,14 +16,15 @@
 * specific language governing permissions and limitations
 * under the License.
 */
-function StackQuestionsComponent(stackService) {
+function StackQuestionsComponent(stackService, componentId) {
     this.stackService = stackService;
+	this.componentId = componentId;
 }
 
-StackQuestionsComponent.prototype.show = function(elementId) {
+StackQuestionsComponent.prototype.show = function() {
 
     var onSuccess = function(data, context) {
-        $("#questionTemplate").tmpl(data.items).appendTo("#" + elementId);
+        $("#questionTemplate").tmpl(data.items).appendTo("#" + context.componentId);
         $("abbr.timeago").timeago();
     };
 
@@ -35,6 +36,10 @@ StackQuestionsComponent.prototype.show = function(elementId) {
     .applyParameters({
         sort: 'creation'
     })
-    .getResponse(onSuccess, onError, 5000, this.stackService);
+    .getResponse(onSuccess, onError, 5000, this);
+};
+
+StackQuestionsComponent.prototype.remove = function() {
+    $('.question').remove();
 };
 

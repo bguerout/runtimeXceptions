@@ -18,23 +18,26 @@
 */
 function StackServiceProxy(config) {
     this.route = new Soapi.RouteFactory(config.site, config.apiKey);
-	Soapi.Events.onSuccess = function(data,context)
+    this.site = config.site;
+    this.users = config.users;
+
+	var self = this;
+	var addGlobalMetadataToDataResponce = function(data,context)
 	{
 		for (i = 0; i < data.items.length; i++)
 	    {
 			var item = data.items[i];
-			item.user_url = context.getSiteUrl() + "/users/" + item.user_id;
-			item.base_url = context.getSiteUrl();
-	        item.question_url = context.getSiteUrl() + "/questions/" + item.question_id;
+			item.user_url = self.getSiteUrl() + "/users/" + item.user_id;
+			item.base_url = self.getSiteUrl();
+	        item.question_url = self.getSiteUrl() + "/questions/" + item.question_id;
 			if(item.owner != null){
-				item.user_url = context.getSiteUrl() + "/users/" + item.owner.user_id
+				item.user_url = self.getSiteUrl() + "/users/" + item.owner.user_id
 			}
 	        item.creation_date_iso = new Date(item.creation_date).toISOString();
 		}
 	};
-	
-    this.site = config.site;
-    this.users = config.users;
+	Soapi.Events.onSuccess = addGlobalMetadataToDataResponce;
+
 }
 
 StackServiceProxy.prototype.getRoute = function () {

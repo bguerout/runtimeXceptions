@@ -16,14 +16,16 @@
 * specific language governing permissions and limitations
 * under the License.
 */
-function StackUsersComponent(stackService) {
+function StackUsersComponent(stackService, componentId) {
     this.stackService = stackService;
+	this.componentId = componentId;
 }
 
-StackUsersComponent.prototype.show = function(elementId) {
+
+StackUsersComponent.prototype.show = function() {
 	
     var onSuccess = function(data, context) {
-        $("#userTemplate").tmpl(data.items).appendTo("#" + elementId);
+        $("#userTemplate").tmpl(data.items).appendTo("#" + context.componentId);
     };
 
     var onError = function(errorResponse, context) {
@@ -31,6 +33,10 @@ StackUsersComponent.prototype.show = function(elementId) {
     };
 
     this.stackService.getRoute().UsersById(this.stackService.users)
-    .getResponse(onSuccess,onError, 5000, this.stackService);
+    .getResponse(onSuccess,onError, 5000, this);
+};
+
+StackUsersComponent.prototype.remove = function() {
+    $('.user').remove();
 };
 
