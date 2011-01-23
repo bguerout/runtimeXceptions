@@ -24,26 +24,23 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>RuntimeXceptions</title>
+    <title>runtimeXceptions</title>
+		
+    <link href="images/france_favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript"></script>
     <script src="http://soapi.info/code/js/stable/scripts/Soapi.js" type="text/javascript"></script>
     <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.js" type="text/javascript"></script>
     <script src="js/libs/jquery.timeago-0.9.2.js" type="text/javascript"></script>
-	<script src="js/StackServiceProxy.js" type="text/javascript"></script>
-	<script src="js/StackQuestionsComponent.js" type="text/javascript"></script>
-	<script src="js/StackUsersComponent.js" type="text/javascript"></script>
-  <script src="js/StackAppManager.js" type="text/javascript"></script>
+		<script src="js/StackServiceProxy.js" type="text/javascript"></script>
+		<script src="js/StackQuestionsComponent.js" type="text/javascript"></script>
+		<script src="js/StackUsersComponent.js" type="text/javascript"></script>
+	  <script src="js/StackAppManager.js" type="text/javascript"></script>
 	
 	<script type="text/javascript">
 	$(document).ready(function loadso()
 	 {	
-		var stackService = new StackServiceProxy({
-			apiKey : "c8SRREzlYUupmKQDTQrGwg",
-			site : 'api.stackoverflow.com',
-			users : [22656, 23354, 12950]
-		});
     new StackAppManager().switchApp('stackoverflow');
 	});
 	</script>
@@ -112,6 +109,8 @@
         <div id="page-bgtop">
           <div id="page-bgbtm">
             <div id="questions">
+            	<div id="questions-gen">
+            	</div>
               <div style="clear: both;">&nbsp;</div>
             </div>
             <!-- end #content -->
@@ -119,23 +118,14 @@
               <ul>
                 <li>
                   <div id="search" >
-                    <form method="get" action="#">
+                    <form method="get" action="http://stackoverflow.com/search" target="_blank">
                       <div>
-                        <input type="text" name="s" id="search-text" value="" />
+                        <input type="text" name="q" id="search-text" value="" />
                         <input type="submit" id="search-submit" value="GO" />
                       </div>
                     </form>
                   </div>
                   <div style="clear: both;">&nbsp;</div>
-                </li>
-                <li>
-                  <h2>Aliquam tempus</h2>
-                  <p>Mauris vitae nisl nec metus placerat perdiet est. Phasellus dapibus semper consectetuer hendrerit.</p>
-                </li>
-                <li>
-                  <h2>Followed Users</h2>
-                  <ul id="users">
-                  </ul>
                 </li>
 								<li>
                   <h2>Project Pages</h2>
@@ -146,6 +136,14 @@
                     <li>
                       <a href="https://github.com/bguerout/runtimeXceptions/wiki">Wiki</a>
                     </li>
+										<li>
+                      <a href="http://xebia.shapado.com">Xebia Shapado</a>
+                    </li>
+                  </ul>
+                </li>
+		           <li>
+                  <h2>Followed Users</h2>
+                  <ul id="users">
                   </ul>
                 </li>
                 <li>

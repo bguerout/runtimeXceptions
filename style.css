@@ -34,7 +34,7 @@ h3 {
 
 p, ul, ol {
     margin-top: 0;
-    line-height: 180%;
+    /*line-height: 180%;*/
 }
 
 ul, ol {
@@ -228,8 +228,8 @@ a:hover {
     background: url(images/img03.jpg) no-repeat left top;
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 13px;
-    font-weight: bold;
+    font-size: 11px;
+    font-weight: lighter;
     color: #FFFFFF;
 }
 
@@ -247,11 +247,11 @@ a:hover {
 
 .question .entry {
     background: #77476B;
-    padding: 20px 30px 20px 30px;
-    padding-bottom: 20px;
+    padding: 5px 30px;
+    padding-bottom: 5px;
     text-align: justify;
     color: #FFFFFF;
-    font-size: 1.5em;
+    font-size: 1.1em;
 }
 
 .question .entry a {
@@ -411,4 +411,8 @@ a:hover {
 
 .xebia-logo {
     color: #9F89A8;
+}
+
+.timeago{
+	border-bottom-width: 0;
 }

@@ -21,7 +21,19 @@ function StackAppManager(){
     this.apiKey = "c8SRREzlYUupmKQDTQrGwg";
     this.apps = {
         stackoverflow: {
-            users: [22656, 23354, 310]
+            users: [22656, 23354, 310, 
+						136476/*Wilfred Springer*/, 
+						122975/*Benoit Guerout*/, 
+						338620/*Arjan Molenaar*/, 
+					  522965/*Age Mooij*/, 
+						454958/*aarti-grover*/,
+						]
+        },
+				superuser: {
+					 users: [310]
+				},
+				serverfault: {
+           users: [310]
         }
     };
     
@@ -30,8 +42,8 @@ function StackAppManager(){
             if (key == app) {
                 return this.apps[key].users;
             }
-            return this.apps.stackoverflow.users;
         }
+				return this.apps.stackoverflow.users;
     };
     
     this.createStackService = function(app){
@@ -62,7 +74,7 @@ StackAppManager.prototype.switchApp = function(app){
 
     var stackService = this.createStackService(app);
     
-    var questions = new StackQuestionsComponent(stackService, 'questions');
+    var questions = new StackQuestionsComponent(stackService, 'questions-gen');
     questions.remove();
     questions.show();
     
