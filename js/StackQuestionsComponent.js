@@ -41,3 +41,9 @@ StackQuestionsComponent.prototype.remove = function(){
     $('.question').remove();
 };
 
+function getClassAnswers() {
+  if (this.data.answer_count == 0) { 
+	 return "noanswer" 
+	};
+  return "answer";
+}

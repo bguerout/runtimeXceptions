@@ -416,3 +416,7 @@ a:hover {
 .timeago{
 	border-bottom-width: 0;
 }
+
+.links .noanswer{
+	color: red;
+}
